@@ -1,0 +1,7 @@
+demo/
+dist/
+tests/
+src/
+.*
+.idea/
+
