@@ -80,15 +80,14 @@ export default class FlexboxCol extends React.Component {
         * */
 
         function getSize(obj, bp = 'xl') {
-            for(var i = 0; i < Object.keys(obj).length; i++) {
-                if (Object.keys(obj)[i] == bp) {
-                    for(i; i < Object.keys(obj).length; i++) {
-                        if (obj[Object.keys(obj)[i]] != false) {
-                            return obj[Object.keys(obj)[i]];
-                        }
-                    }
+            if (obj[bp]) return obj[bp];
+            let result = 0;
+            for(var i = Object.keys(obj).length - 1; Object.keys(obj)[i] != bp; i--) {
+                if (obj[i] != 0) {
+                    result = obj[i];
                 }
             }
+            return result;
         }
 
         function makeCol(maxWidth, colSize) {
