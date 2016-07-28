@@ -14,28 +14,67 @@ ReactDOM.render(
         <Fork project={project} className='right'/>
         <div className='header'>
             <h1>React-amazing-grid</h1>
-            <p>WIP, don't use dat shit now.</p>
         </div>
-        <div>
+        <div className='demo-feature'>
             <Container>
-                <Row className='demo-row'>
-                    <Col xs={1} sm={3} md={4} lg={6} xl={11} className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </Col>
-                    <Col xs={1} sm={3} md={4} lg={6} xl={1} className='demo-col'>
-                        <p className="demo-block">Col</p>
+                <Row>
+                    <Col xs={12}>
+                        <h2>Responsive</h2>
+                        <p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md, lg & xl viewport widths.</p>
                     </Col>
                 </Row>
-
                 <Row className='demo-row'>
-                    <Col className='demo-col'>
-                        <p className="demo-block">Col</p>
+                    <Col xs={2} className='demo-col'>
+                        <p className="demo-block"></p>
                     </Col>
-                    <Col className='demo-col'>
-                        <p className="demo-block">Col</p>
+                    <Col xs={8} className='demo-col'>
+                        <p className="demo-block"></p>
                     </Col>
-                    <Col className='demo-col'>
-                        <p className="demo-block">Col</p>
+                    <Col xs={2} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={6} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={6} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={8} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={4} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+
+        <div>
+            <Container>
+                <Row>
+                    <Col xs={12}>
+                        <h2>Offsets</h2>
+                        <p>Offset a column.</p>
+                    </Col>
+                </Row>
+                <Row className='demo-row'>
+                    <Col xs={1} xsOffset={11} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={3} xsOffset={9} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={5} xsOffset={7} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={7} xsOffset={5} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={9} xsOffset={3} className='demo-col'>
+                        <p className="demo-block"></p>
+                    </Col>
+                    <Col xs={11} xsOffset={1} className='demo-col'>
+                        <p className="demo-block"></p>
                     </Col>
                 </Row>
             </Container>

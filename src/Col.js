@@ -9,11 +9,17 @@ export default class FlexboxCol extends React.Component {
         super(props, context);
         this.state = {
             width: 0,
+            maxCols: 12,
             xs: 0,
             sm: 0,
             md: 0,
             lg: 0,
-            xl: 0
+            xl: 0,
+            xsOffset: 0,
+            smOffset: 0,
+            mdOffset: 0,
+            lgOffset: 0,
+            xlOffset: 0
         };
 
         this.handleViewportWidth = this.handleViewportWidth.bind(this);
@@ -27,6 +33,11 @@ export default class FlexboxCol extends React.Component {
         self.setState({md: this.props.md});
         self.setState({lg: this.props.lg});
         self.setState({xl: this.props.xl});
+        self.setState({xsOffset: this.props.xsOffset});
+        self.setState({smOffset: this.props.smOffset});
+        self.setState({mdOffset: this.props.mdOffset});
+        self.setState({lgOffset: this.props.lgOffset});
+        self.setState({xlOffset: this.props.xlOffset});
     }
 
     componentDidMount() {
@@ -51,256 +62,137 @@ export default class FlexboxCol extends React.Component {
             boxSizing: 'border-box'
         };
 
+        function makeObject(xs, sm, md, lg, xl) {
+            return {
+                'xl': xl,
+                'lg': lg,
+                'md': md,
+                'sm': sm,
+                'xs': xs
+            }
+        }
+
+        /*
+        *   Принимает объект и брейкпоинт, перебирает объект до первого не
+        *   нулевого значения. Начинает считать с брейкпоинта.
+        *   params: obj - объект
+        *           bp - строка, ключ обхекта, с которого начинать отсчет
+        * */
+
+        function getSize(obj, bp = 'xl') {
+            for(var i = 0; i < Object.keys(obj).length; i++) {
+                if (Object.keys(obj)[i] == bp) {
+                    for(i; i < Object.keys(obj).length; i++) {
+                        if (obj[Object.keys(obj)[i]] != false) {
+                            return obj[Object.keys(obj)[i]];
+                        }
+                    }
+                }
+            }
+        }
+
+        function makeCol(maxWidth, colSize) {
+            let width = 100 / (maxWidth / colSize);
+            style = Object.assign({}, style, {flex: '0 0'+width+'%', maxWidth: width+'%'});
+            return style;
+        }
+
+        function makeColOffset(maxWidth, offsetSize) {
+            let width = 100 / (maxWidth / offsetSize);
+            style = Object.assign({}, style, {marginLeft: width+'%'});
+            return style;
+        }
+
         if(this.state.width > 1200) {
-            switch (this.state.xl) {
-                case 1:
-                    style = Object.assign({}, style, {flex: '0 0 8.33333333%', maxWidth: '8.33333333%'});
-                    break;
 
-                case 2:
-                    style = Object.assign({}, style, {flex: '0 0 16.66666667%', maxWidth: '16.66666667%'});
-                    break;
+            let colSize = makeObject(
+                this.props.xs,
+                this.props.sm,
+                this.props.md,
+                this.props.lg,
+                this.props.xl);
 
-                case 3:
-                    style = Object.assign({}, style, {flex: '0 0 25%', maxWidth: '25%'});
-                    break;
+            let offsetSize = makeObject(
+                this.props.xsOffset,
+                this.props.smOffset,
+                this.props.mdOffset,
+                this.props.lgOffset,
+                this.props.xlOffset);
 
-                case 4:
-                    style = Object.assign({}, style, {flex: '0 0 33.33333333%', maxWidth: '33.33333333%'});
-                    break;
-
-                case 5:
-                    style = Object.assign({}, style, {flex: '0 0 41.66666667%', maxWidth: '41.66666667%'});
-                    break;
-
-                case 6:
-                    style = Object.assign({}, style, {flex: '0 0 50%', maxWidth: '50%'});
-                    break;
-
-                case 7:
-                    style = Object.assign({}, style, {flex: '0 0 58.33333333%', maxWidth: '58.33333333%'});
-                    break;
-
-                case 8:
-                    style = Object.assign({}, style, {flex: '0 0 66.66666667%', maxWidth: '66.66666667%'});
-                    break;
-
-                case 9:
-                    style = Object.assign({}, style, {flex: '0 0 75%', maxWidth: '75%'});
-                    break;
-
-                case 10:
-                    style = Object.assign({}, style, {flex: '0 0 83.33333333%', maxWidth: '83.33333333%'});
-                    break;
-
-                case 11:
-                    style = Object.assign({}, style, {flex: '0 0 91.66666667%', maxWidth: '91.66666667%'});
-                    break;
-
-                case 12:
-                    style = Object.assign({}, style, {flex: '0 0 100%', maxWidth: '100%'});
-                    break;
-            }
+            makeCol(this.state.maxCols, getSize(colSize, 'xl'));
+            makeColOffset(this.state.maxCols, getSize(offsetSize, 'xl'));
         } else if(this.state.width > 992) {
-            switch (this.state.lg) {
-                case 1:
-                    style = Object.assign({}, style, {flex: '0 0 8.33333333%', maxWidth: '8.33333333%'});
-                    break;
 
-                case 2:
-                    style = Object.assign({}, style, {flex: '0 0 16.66666667%', maxWidth: '16.66666667%'});
-                    break;
+            let colSize = makeObject(
+                this.props.xs,
+                this.props.sm,
+                this.props.md,
+                this.props.lg,
+                this.props.xl);
 
-                case 3:
-                    style = Object.assign({}, style, {flex: '0 0 25%', maxWidth: '25%'});
-                    break;
+            let offsetSize = makeObject(
+                this.props.xsOffset,
+                this.props.smOffset,
+                this.props.mdOffset,
+                this.props.lgOffset,
+                this.props.xlOffset);
 
-                case 4:
-                    style = Object.assign({}, style, {flex: '0 0 33.33333333%', maxWidth: '33.33333333%'});
-                    break;
-
-                case 5:
-                    style = Object.assign({}, style, {flex: '0 0 41.66666667%', maxWidth: '41.66666667%'});
-                    break;
-
-                case 6:
-                    style = Object.assign({}, style, {flex: '0 0 50%', maxWidth: '50%'});
-                    break;
-
-                case 7:
-                    style = Object.assign({}, style, {flex: '0 0 58.33333333%', maxWidth: '58.33333333%'});
-                    break;
-
-                case 8:
-                    style = Object.assign({}, style, {flex: '0 0 66.66666667%', maxWidth: '66.66666667%'});
-                    break;
-
-                case 9:
-                    style = Object.assign({}, style, {flex: '0 0 75%', maxWidth: '75%'});
-                    break;
-
-                case 10:
-                    style = Object.assign({}, style, {flex: '0 0 83.33333333%', maxWidth: '83.33333333%'});
-                    break;
-
-                case 11:
-                    style = Object.assign({}, style, {flex: '0 0 91.66666667%', maxWidth: '91.66666667%'});
-                    break;
-
-                case 12:
-                    style = Object.assign({}, style, {flex: '0 0 100%', maxWidth: '100%'});
-                    break;
-            }
+            makeCol(this.state.maxCols, getSize(colSize, 'lg'));
+            makeColOffset(this.state.maxCols, getSize(offsetSize, 'lg'));
         } else if(this.state.width > 768) {
-            switch (this.state.md) {
-                case 1:
-                    style = Object.assign({}, style, {flex: '0 0 8.33333333%', maxWidth: '8.33333333%'});
-                    break;
 
-                case 2:
-                    style = Object.assign({}, style, {flex: '0 0 16.66666667%', maxWidth: '16.66666667%'});
-                    break;
+            let colSize = makeObject(
+                this.props.xs,
+                this.props.sm,
+                this.props.md,
+                this.props.lg,
+                this.props.xl);
 
-                case 3:
-                    style = Object.assign({}, style, {flex: '0 0 25%', maxWidth: '25%'});
-                    break;
+            let offsetSize = makeObject(
+                this.props.xsOffset,
+                this.props.smOffset,
+                this.props.mdOffset,
+                this.props.lgOffset,
+                this.props.xlOffset);
 
-                case 4:
-                    style = Object.assign({}, style, {flex: '0 0 33.33333333%', maxWidth: '33.33333333%'});
-                    break;
-
-                case 5:
-                    style = Object.assign({}, style, {flex: '0 0 41.66666667%', maxWidth: '41.66666667%'});
-                    break;
-
-                case 6:
-                    style = Object.assign({}, style, {flex: '0 0 50%', maxWidth: '50%'});
-                    break;
-
-                case 7:
-                    style = Object.assign({}, style, {flex: '0 0 58.33333333%', maxWidth: '58.33333333%'});
-                    break;
-
-                case 8:
-                    style = Object.assign({}, style, {flex: '0 0 66.66666667%', maxWidth: '66.66666667%'});
-                    break;
-
-                case 9:
-                    style = Object.assign({}, style, {flex: '0 0 75%', maxWidth: '75%'});
-                    break;
-
-                case 10:
-                    style = Object.assign({}, style, {flex: '0 0 83.33333333%', maxWidth: '83.33333333%'});
-                    break;
-
-                case 11:
-                    style = Object.assign({}, style, {flex: '0 0 91.66666667%', maxWidth: '91.66666667%'});
-                    break;
-
-                case 12:
-                    style = Object.assign({}, style, {flex: '0 0 100%', maxWidth: '100%'});
-                    break;
-            }
+            makeCol(this.state.maxCols, getSize(colSize, 'md'));
+            makeColOffset(this.state.maxCols, getSize(offsetSize, 'md'));
         } else if(this.state.width > 544) {
-            switch (this.state.sm) {
-                case 1:
-                    style = Object.assign({}, style, {flex: '0 0 8.33333333%', maxWidth: '8.33333333%'});
-                    break;
 
-                case 2:
-                    style = Object.assign({}, style, {flex: '0 0 16.66666667%', maxWidth: '16.66666667%'});
-                    break;
+            let colSize = makeObject(
+                this.props.xs,
+                this.props.sm,
+                this.props.md,
+                this.props.lg,
+                this.props.xl);
 
-                case 3:
-                    style = Object.assign({}, style, {flex: '0 0 25%', maxWidth: '25%'});
-                    break;
+            let offsetSize = makeObject(
+                this.props.xsOffset,
+                this.props.smOffset,
+                this.props.mdOffset,
+                this.props.lgOffset,
+                this.props.xlOffset);
 
-                case 4:
-                    style = Object.assign({}, style, {flex: '0 0 33.33333333%', maxWidth: '33.33333333%'});
-                    break;
+            makeCol(this.state.maxCols, getSize(colSize, 'sm'));
+            makeColOffset(this.state.maxCols, getSize(offsetSize, 'sm'));
+        } else if(this.state.width < 544) {
 
-                case 5:
-                    style = Object.assign({}, style, {flex: '0 0 41.66666667%', maxWidth: '41.66666667%'});
-                    break;
+            let colSize = makeObject(
+                this.props.xs,
+                this.props.sm,
+                this.props.md,
+                this.props.lg,
+                this.props.xl);
 
-                case 6:
-                    style = Object.assign({}, style, {flex: '0 0 50%', maxWidth: '50%'});
-                    break;
+            let offsetSize = makeObject(
+                this.props.xsOffset,
+                this.props.smOffset,
+                this.props.mdOffset,
+                this.props.lgOffset,
+                this.props.xlOffset);
 
-                case 7:
-                    style = Object.assign({}, style, {flex: '0 0 58.33333333%', maxWidth: '58.33333333%'});
-                    break;
-
-                case 8:
-                    style = Object.assign({}, style, {flex: '0 0 66.66666667%', maxWidth: '66.66666667%'});
-                    break;
-
-                case 9:
-                    style = Object.assign({}, style, {flex: '0 0 75%', maxWidth: '75%'});
-                    break;
-
-                case 10:
-                    style = Object.assign({}, style, {flex: '0 0 83.33333333%', maxWidth: '83.33333333%'});
-                    break;
-
-                case 11:
-                    style = Object.assign({}, style, {flex: '0 0 91.66666667%', maxWidth: '91.66666667%'});
-                    break;
-
-                case 12:
-                    style = Object.assign({}, style, {flex: '0 0 100%', maxWidth: '100%'});
-                    break;
-            }
-        } else {
-            switch (this.state.xs) {
-                case 1:
-                    style = Object.assign({}, style, {flex: '0 0 8.33333333%', maxWidth: '8.33333333%'});
-                    break;
-
-                case 2:
-                    style = Object.assign({}, style, {flex: '0 0 16.66666667%', maxWidth: '16.66666667%'});
-                    break;
-
-                case 3:
-                    style = Object.assign({}, style, {flex: '0 0 25%', maxWidth: '25%'});
-                    break;
-
-                case 4:
-                    style = Object.assign({}, style, {flex: '0 0 33.33333333%', maxWidth: '33.33333333%'});
-                    break;
-
-                case 5:
-                    style = Object.assign({}, style, {flex: '0 0 41.66666667%', maxWidth: '41.66666667%'});
-                    break;
-
-                case 6:
-                    style = Object.assign({}, style, {flex: '0 0 50%', maxWidth: '50%'});
-                    break;
-
-                case 7:
-                    style = Object.assign({}, style, {flex: '0 0 58.33333333%', maxWidth: '58.33333333%'});
-                    break;
-
-                case 8:
-                    style = Object.assign({}, style, {flex: '0 0 66.66666667%', maxWidth: '66.66666667%'});
-                    break;
-
-                case 9:
-                    style = Object.assign({}, style, {flex: '0 0 75%', maxWidth: '75%'});
-                    break;
-
-                case 10:
-                    style = Object.assign({}, style, {flex: '0 0 83.33333333%', maxWidth: '83.33333333%'});
-                    break;
-
-                case 11:
-                    style = Object.assign({}, style, {flex: '0 0 91.66666667%', maxWidth: '91.66666667%'});
-                    break;
-
-                case 12:
-                    style = Object.assign({}, style, {flex: '0 0 100%', maxWidth: '100%'});
-                    break;
-            }
+            makeCol(this.state.maxCols, getSize(colSize, 'xs'));
+            makeColOffset(this.state.maxCols, getSize(offsetSize, 'xs'));
         }
 
         return  <div style={style} {...this.props}>{this.props.children}</div>
