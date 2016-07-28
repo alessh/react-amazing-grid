@@ -7,15 +7,16 @@ import React from 'react'
 export default class Row extends React.Component {
     render () {
         let style = {
-            marginRight: '-15px',
+            display: 'flex',
+            flexWrap: 'wrap',
             marginLeft: '-15px',
+            marginRight: '-15px',
             boxSizing: 'border-box'
         };
 
         return  <div style={style} {...this.props}>
-                    <div style={{display: 'table'}}/>
-                    {this.props.children}
-                    <div style={{display: 'table', clear: 'both'}}/>
-                </div>
+            {this.props.children}
+            <div style={{display: 'table', clear: 'both'}}/>
+        </div>
     }
 }

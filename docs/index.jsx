@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Fork from 'react-ghfork';
 
-import {Container, Row, Col, FlexboxContainer, FlexboxRow, FlexboxCol} from '../src/index'
+import {Container, Row, Col} from '../src/index'
 
 import './main.css';
 import 'react-ghfork/gh-fork-ribbon.css'
@@ -17,67 +17,28 @@ ReactDOM.render(
             <p>WIP, don't use dat shit now.</p>
         </div>
         <div>
-            <FlexboxContainer>
-                <FlexboxRow className='demo-row'>
-                    <FlexboxCol xs={1} sm={3} md={4} lg={6} xl={11} className='demo-col'>
+            <Container>
+                <Row className='demo-row'>
+                    <Col xs={1} sm={3} md={4} lg={6} xl={11} className='demo-col'>
                         <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol xs={1} sm={3} md={4} lg={6} xl={1} className='demo-col'>
+                    </Col>
+                    <Col xs={1} sm={3} md={4} lg={6} xl={1} className='demo-col'>
                         <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                </FlexboxRow>
+                    </Col>
+                </Row>
 
-                <FlexboxRow className='demo-row'>
-                    <FlexboxCol className='demo-col'>
+                <Row className='demo-row'>
+                    <Col className='demo-col'>
                         <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
+                    </Col>
+                    <Col className='demo-col'>
                         <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
+                    </Col>
+                    <Col className='demo-col'>
                         <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                    <FlexboxCol className='demo-col'>
-                        <p className="demo-block">Col</p>
-                    </FlexboxCol>
-                </FlexboxRow>
-            </FlexboxContainer>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     </div>,
     document.getElementById('app')
