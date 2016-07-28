@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Fork from 'react-ghfork';
 
-import {Container, Row, Col} from '../src/index'
+import {Container, Row, Col, FlexboxContainer, FlexboxRow, FlexboxCol} from '../src/index'
 
 import './main.css';
 import 'react-ghfork/gh-fork-ribbon.css'
@@ -17,73 +17,67 @@ ReactDOM.render(
             <p>WIP, don't use dat shit now.</p>
         </div>
         <div>
-            <Container>
-                <Row className='demo-row'>
-                    <Col lg={3} md={6} sm={12} xs={12} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={3} md={6} sm={12} xs={12} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={3} md={6} sm={12} xs={12} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={3} md={6} sm={12} xs={12} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                </Row>
+            <FlexboxContainer>
+                <FlexboxRow className='demo-row'>
+                    <FlexboxCol xs={1} sm={3} md={4} lg={6} xl={11} className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol xs={1} sm={3} md={4} lg={6} xl={1} className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                </FlexboxRow>
 
-                <Row className='demo-row'>
-                    <Col lg={4} md={6} sm={6} xs={12} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={4} md={3} sm={6} xs={12} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={4} md={3} sm={12} xs={12} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                </Row>
-
-                <Row className='demo-row'>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                    <Col lg={1} md={3} sm={6} xs={2} className='demo-col'>
-                        <p className='demo-block'>Col</p>
-                    </Col>
-                </Row>
-            </Container>
+                <FlexboxRow className='demo-row'>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                    <FlexboxCol className='demo-col'>
+                        <p className="demo-block">Col</p>
+                    </FlexboxCol>
+                </FlexboxRow>
+            </FlexboxContainer>
         </div>
     </div>,
     document.getElementById('app')
