@@ -7,13 +7,13 @@ import {Container, Row, Col} from '../src/index'
 import './main.css';
 import 'react-ghfork/gh-fork-ribbon.css'
 
-const project = 'Amazing-Space-Invader/react-grid-layout';
+const project = 'Amazing-Space-Invader/react-amazing-grid';
 
 ReactDOM.render(
     <div>
         <Fork project={project} className='right'/>
         <div className='header'>
-            <h1>React-grid-layout</h1>
+            <h1>React-amazing-grid</h1>
             <p>WIP, don't use dat shit now.</p>
         </div>
         <div>
