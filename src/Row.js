@@ -12,7 +12,7 @@ export default class Row extends React.Component {
             boxSizing: 'border-box'
         };
 
-        return  <div style={style}>
+        return  <div style={style} {...this.props}>
                     <div style={{display: 'table'}}/>
                     {this.props.children}
                     <div style={{display: 'table', clear: 'both'}}/>
