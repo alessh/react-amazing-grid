@@ -7,12 +7,11 @@ import {Container, Row, Col} from '../src/index'
 import './main.css';
 import 'react-ghfork/gh-fork-ribbon.css'
 
-//const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
-const project = `Amazing-Space-Invader/react-grid-layout`; // eslint-disable-line no-undef
+const project = 'Amazing-Space-Invader/react-grid-layout';
 
 ReactDOM.render(
     <div>
-        <Fork project={project} className='right'></Fork>
+        <Fork project={project} className='right'/>
         <div className='header'>
             <h1>React-grid-layout</h1>
             <p>WIP, don't use dat shit now.</p>
